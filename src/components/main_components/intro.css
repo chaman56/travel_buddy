@@ -1,0 +1,29 @@
+
+.intro{position: relative;
+  height: 400px;
+  width: 100%;
+  background: blue;
+  background: url('C:/Users/ycham/Downloads/pexels-mo-eid-9002742.jpg')center no-repeat;
+  background-size: cover;
+  max-width: 1150px;
+  overflow: hidden;
+  /* height: calc(100vh - 100px); */
+}
+video{
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}
+.intro-cover{
+  position: absolute;
+  z-index: 1000;
+  height: inherit;
+  width: inherit;
+  background: rgba(128, 128, 128, 0.326);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 20px black;
+}

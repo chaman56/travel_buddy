@@ -1,0 +1,21 @@
+
+
+a{
+  text-decoration: none;
+  color: black;
+}
+.header2 a::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  margin-top: 2px;
+  background: rgb(87, 80, 80);
+  transition: width .3s;
+}
+a:hover::after{
+  width: 100%;
+}
+.btn{
+  cursor: pointer;
+}
