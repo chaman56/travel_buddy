@@ -8,10 +8,10 @@ function Intro() {
         <video src={'./videos/pixel.mp4'} muted autoPlay loop />
           <div className="intro-cover">
             <div style={{"paddingLeft":"1rem","maxWidth":"min(60%, 400px)"}}>
-              <h1>Tour India</h1>
-              <p>The best country full of culture and diversity with drops of peace and perfection in the ocean of warm and welcoming hearts.</p>
-              <br></br>
-              Enjoy your trip -
+              <h1>Travel Buddy</h1>
+              <p>Travel Buddy let's you dive in the indescrivable ocean of culture, peace and beauty of diversified places of India.</p>
+              
+              So why wait Let's dive Now.
             </div>
           </div>
     </div>

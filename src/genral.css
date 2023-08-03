@@ -30,3 +30,19 @@
   align-items: center;
   justify-content: center;
 }
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.button{
+  padding: 2px 5px 4px 5px;
+  background: rgb(31, 121, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+.button:hover{
+  background: blue;
+}

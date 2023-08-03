@@ -6,11 +6,32 @@ import ExploreCard from './main_components/explore';
 import Intro from './main_components/intro';
 import Package from './main_components/packages';
 import Testm from './main_components/testimonials';
-import Footer from "./footer";
+import { useRef } from "react";
 
 function Main() {
   const [i, seti] = useState(1);
-  return ( 
+
+  const ref1 = useRef(null);
+  const ref2 = useRef(null);
+  const ref3 = useRef(null);
+  const scroll_Left = (ref) =>{
+    const timer = setInterval(function(){
+      ref.current.scrollLeft -= 10;
+    },10)
+    setTimeout(function(){
+      clearInterval(timer)
+    },500)
+  }
+  const scroll_Right = (ref) =>{
+    const timer = setInterval(function(){
+      ref.current.scrollLeft += 10;
+    },10)
+    setTimeout(function(){
+      clearInterval(timer)
+    },500)
+  }
+
+  return (  
   <>
     <main>
       <Intro />
@@ -24,29 +45,41 @@ function Main() {
       </div>
 
       <h2><span className='heading'>PACKAGES</span></h2>
-      <div className='packages'>
-        <Package title={'Trip to Goa'} price={8000} url={'./images/goa.jpeg'} />
-        <Package title={'Trip to Darjling'} price={8000} url={'https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTPNcY6Q5AQKV37XxQlRua2bIoEwUYV2JqEro1s4H1whVkCXPeQkq-n0hDu4blHKg88LB4-MSq9nUq9iDJL27Xy5bGRTw'} />
-        <Package title={'Trip to Goa'} price={8000} url={'./images/goa.jpeg'} />
-        <Package title={'Trip to Goa'} price={8000} url={'./images/goa.jpeg'} />
+      <div className="flex flex-cc" style={{"width":"100%"}}>
+        <button id="package3" onClick={()=>scroll_Left(ref1)} className="slide_button" style={{"marginRight":"5px"}}><i class="fa-solid fa-chevron-left fa-xl"></i></button>
+          <div id="scroll1" className='packages' ref={ref1}>
+            <Package id={1} title={'ENCHANTING INDIA'} price={39999} url={'./images/goa.jpeg'} />
+            <Package id={2} title={'HERITAGE GEMS OF NORTH INDIA'} price={41999} url={'https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcTPNcY6Q5AQKV37XxQlRua2bIoEwUYV2JqEro1s4H1whVkCXPeQkq-n0hDu4blHKg88LB4-MSq9nUq9iDJL27Xy5bGRTw'} />
+            <Package id={3} title={'WESTERN WONDERS'} price={36999} url={'./images/goa.jpeg'} />
+          </div>
+        <button id="package3" onClick={()=>scroll_Right(ref1)} className="slide_button" style={{"marginLeft":"5px"}}><i class="fa-solid fa-chevron-right fa-xl"></i></button>
       </div>
 
       <h2><span className='heading'> Explore before you Visit </span></h2>
-      <div className='explore'>
+      <div className="wrap-c" style={{"width":"100%"}}>
+      <button onClick={()=>scroll_Left(ref2)} className="slide_button" style={{"marginRight":"5px"}}><i class="fa-solid fa-chevron-left fa-xl"></i></button>
+      <div className='explore' ref={ref2}>
         <ExploreCard title={'Maldeeves'} url={'./images/goa.jpeg'} />
         <ExploreCard title={'manali'} url={'https://www.oyorooms.com/travel-guide/wp-content/uploads/2019/11/Top-4-Indian-skiing-destinations-Solang.webp'} />
         <ExploreCard title={'Shimla'} url={'https://assets-news.housing.com/news/wp-content/uploads/2022/07/18131039/shimla-feature-compressed.jpg'} />
         <ExploreCard title={'Varanasi'} url={'https://www.tourmyindia.com/packages-tour-india/uttar-pradesh-tours/images/varanasi-pilgrimage-tour1.jpg'} />
         <ExploreCard title={'Goa'} url={'./images/goa.jpeg'} />
       </div>
+      <button onClick={()=>scroll_Right(ref2)} className="slide_button" style={{"marginLeft":"5px"}}><i class="fa-solid fa-chevron-right fa-xl"></i></button>
+      </div>
 
       <h2><span className='heading'> Celebrate with us </span></h2>
-      <div className='festivals packages'>
+      <div className="wrap-c" style={{"width":"100%"}}>
+      <button onClick={()=>scroll_Left(ref3)} className="slide_button" style={{"marginRight":"5px"}}><i class="fa-solid fa-chevron-left fa-xl"></i></button>
+      <div className='festivals packages' ref={ref3}>
         <Package title={'Holi in Vrindavan'} price={8000} url={'https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2019/03/Holi-In-Vrindavan-Mathura-Featue.jpg?tr=w-600'} />
         <Package title={'Durga Puja WestBengal'} price={8000} url={'https://www.deccanherald.com/sites/dh/files/articleimages/2021/10/09/pti10052021000110b-1-1037681-1633796926.jpg'} />
         <Package title={'Holi in Vrindavan'} price={8000} url={'https://images.travelandleisureasia.com/wp-content/uploads/sites/2/2019/03/Holi-In-Vrindavan-Mathura-Featue.jpg?tr=w-600'} />
         <Package title={'Durga Puja WestBengal'} price={8000} url={'https://www.deccanherald.com/sites/dh/files/articleimages/2021/10/09/pti10052021000110b-1-1037681-1633796926.jpg'} />
       </div>
+      <button onClick={()=>scroll_Right(ref3)} className="slide_button" style={{"marginLeft":"5px"}}><i class="fa-solid fa-chevron-right fa-xl"></i></button>
+      </div>
+
       <h2><span className='heading'> Why Travel Buddy </span></h2>
       <div style={{"padding":"1rem","textAlign":"center"}}>
         <p>Travel Buddy offers a Lot of great benifits to its customers at the best prices possible.</p>
@@ -68,12 +101,11 @@ function Main() {
       {/* <div style={{"borderBottom":"2px solid black","width":"80%"}}></div> */}
       <br></br>
       <h2><span className='heading'> BLOGS </span></h2>
-      <div className="blogs packages">
+      <div className="blogs packages flex-cc">
         <Package title={'Top 10 place to visit in Summer.'} date={'June 25,2023'} url={'./images/goa.jpeg'} />
         <Package title={'Top 10 place to visit in Summer.'} date={'June 25,2023'} url={'https://assets-news.housing.com/news/wp-content/uploads/2022/07/18131039/shimla-feature-compressed.jpg'} />
         <Package title={'Top 10 place to visit in Summer.'} date={'June 25,2023'} url={'./images/goa.jpeg'} />
       </div>
-      <Footer />
     </main>
   </> 
   );
