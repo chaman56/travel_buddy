@@ -47,6 +47,23 @@ a{
 a:hover::after{
   width: 100%;
 }
+
+Link{
+  text-decoration: none;
+  color: black;
+}
+.header2 Link::after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  margin-top: 2px;
+  background: rgb(87, 80, 80);
+  transition: width .3s;
+}
+Link:hover::after{
+  width: 100%;
+}
 .btn{
   cursor: pointer;
 }

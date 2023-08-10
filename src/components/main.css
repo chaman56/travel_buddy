@@ -60,6 +60,7 @@ main{
   width: 95%;
   padding: 1rem;
   max-width: 1150px;
+  overflow-x: scroll;
 }
 
 

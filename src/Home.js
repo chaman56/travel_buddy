@@ -10,7 +10,8 @@ import './App.css'
 import './genral.css'
 import Main from "./components/main";
 import Footer from "./components/footer";
-import PackagePage from './components/PackagePage';
+import PackagePage from './components/Pages/PackagePage';
+import ExplorePage from "./components/Pages/ExplorePage";
 
 const Home = () =>{
   const { logOut, user } = useUserAuth();
@@ -27,8 +28,9 @@ const Home = () =>{
     <>
       <Header user={user} handleLogout={handleLogout} />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/*" element={<Main />} />
         <Route path="/packages" element ={<PackagePage />}/>
+        <Route path="/explore/:id" element ={<ExplorePage />}/>
         <Route path="/packages/:id" element ={<PackagePage />}/>
       </Routes>
       <Footer />

@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import packages from "../../database/packages";
 
 function Package({id,title,price,url,date}) {
@@ -9,7 +9,7 @@ function Package({id,title,price,url,date}) {
 
   return (
   <>
-    <Link to={`/packages`} className="package" style={{"background": bg}}
+    <NavLink to={`/packages/${id}`} className="package" style={{"background": bg}}
     onMouseEnter={()=>{setbg('rgb(230, 230,230)')}}
     onMouseLeave={()=>{setbg('white')}}>
       {!date && <h6>{title}</h6>} 
@@ -23,7 +23,7 @@ function Package({id,title,price,url,date}) {
         <p>{title}</p>
         </div>
       }
-    </Link>
+    </NavLink>
   </> );
 }
 
